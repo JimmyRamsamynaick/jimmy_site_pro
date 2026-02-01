@@ -1,19 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Check, Mail, Phone, Send } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function PaymentConfirmPage() {
-  // We can wrap useSearchParams in Suspense in a real layout or component, 
-  // but for simplicity in this file structure we'll just use it directly 
-  // and accept Next.js might warn about Suspense boundary during build if not careful.
-  // In Next.js 13+ App Router, pages are server components by default unless "use client", 
-  // but useSearchParams requires client context and Suspense boundary usually.
-  
   return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">Chargement...</div>}>
       <PaymentConfirmContent />
+    </Suspense>
   );
 }
 
