@@ -24,9 +24,9 @@ export default function MentionsLegales() {
               Le site est hébergé sur un serveur privé virtuel (VPS) géré par le propriétaire.
             </p>
             <ul className="list-disc pl-5 mt-3 space-y-1">
-              <li><strong>Hébergeur :</strong> Hostinger International Ltd. (ou équivalent selon votre fournisseur)</li>
-              <li><strong>Adresse :</strong> 61 Lordou Vironos Street, 6023 Larnaca, Chypre</li>
-              <li><strong>Site web :</strong> https://www.hostinger.fr</li>
+              <li><strong>Hébergeur :</strong> Contabo GmbH</li>
+              <li><strong>Adresse :</strong> Aschauer Straße 32a, 81549 Munich, Allemagne</li>
+              <li><strong>Site web :</strong> https://contabo.com</li>
             </ul>
           </section>
 
