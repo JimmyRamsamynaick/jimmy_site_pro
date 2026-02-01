@@ -24,9 +24,15 @@ function PaymentContent() {
   }, [searchParams]);
 
   const handlePaymentClick = (provider: "paypal" | "revolut") => {
-    // Simulate redirect to provider
-    // In a real app, this would go to PayPal/Revolut API url
-    // For now, we simulate success and go to confirmation
+    if (provider === "paypal") {
+      const baseUrl = "https://paypal.me/JimmyRamsamynaick";
+      const finalUrl = amount ? `${baseUrl}/${amount}EUR` : baseUrl;
+      window.open(finalUrl, "_blank");
+    } else if (provider === "revolut") {
+      window.open("https://revolut.me/jramsamynaick05", "_blank");
+    }
+    
+    // Redirect to confirmation page to give instructions
     router.push(`/payment/confirm?provider=${provider}&amount=${amount}&service=${service}`);
   };
 

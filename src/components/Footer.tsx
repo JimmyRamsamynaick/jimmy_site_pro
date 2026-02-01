@@ -34,8 +34,8 @@ export default function Footer() {
               <li><Link href="/contact" className="hover:text-blue-400 transition-colors">Contact</Link></li>
               <li><Link href="/payment" className="hover:text-blue-400 transition-colors">Paiement Sécurisé</Link></li>
               <li><Link href="/shop" className="hover:text-blue-400 transition-colors">Boutique</Link></li>
-              <li><span className="text-slate-500 cursor-not-allowed">Mentions Légales</span></li>
-              <li><span className="text-slate-500 cursor-not-allowed">Politique de confidentialité</span></li>
+              <li><Link href="/legal/mentions-legales" className="hover:text-blue-400 transition-colors">Mentions Légales</Link></li>
+              <li><Link href="/legal/politique-confidentialite" className="hover:text-blue-400 transition-colors">Politique de confidentialité</Link></li>
             </ul>
           </div>
 
