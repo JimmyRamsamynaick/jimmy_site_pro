@@ -68,14 +68,14 @@ export default function QuoteForm() {
     setLoading(true);
     
     try {
-      const response = await fetch('/api/send-email', {
+      // 1. Email pour l'administrateur (Jimmy)
+      const adminEmailPromise = fetch('/api/send-email', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          to: "jimmyramsamynaick@gmail.com",
           replyTo: data.email,
-          subject: `Nouveau Devis : ${data.serviceType} - ${data.name}`,
+          subject: `[DEVIS] Nouvelle demande : ${data.serviceType} - ${data.name}`,
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
               <h2 style="color: #2563eb;">Nouvelle demande de devis</h2>
@@ -96,11 +96,50 @@ export default function QuoteForm() {
         }),
       });
 
-      if (response.ok) {
+      // 2. Email de confirmation pour le client
+      const clientEmailPromise = fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          to: data.email,
+          subject: `Confirmation de votre demande de devis - JimmyTech`,
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+              <h2 style="color: #2563eb;">Demande de devis reçue</h2>
+              <p>Bonjour <strong>${data.name}</strong>,</p>
+              <p>Nous avons bien reçu votre demande de devis concernant : <strong>${data.serviceType}</strong>.</p>
+              <p>Nous allons étudier votre demande et revenir vers vous sous 24h avec une estimation précise.</p>
+              
+              <div style="background-color: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; margin: 20px 0;">
+                <h3 style="margin-top: 0; color: #1e293b;">Récapitulatif de votre demande :</h3>
+                <ul style="padding-left: 20px; color: #475569;">
+                  <li><strong>Service :</strong> ${data.serviceType}</li>
+                  <li><strong>Intervention :</strong> ${data.interventionType === 'site' ? 'Sur Site' : 'À Distance'}</li>
+                  <li><strong>Urgence :</strong> ${data.urgency ? 'Oui' : 'Non'}</li>
+                </ul>
+              </div>
+
+              <p>Si vous avez des questions supplémentaires, n'hésitez pas à répondre directement à cet email.</p>
+              <br/>
+              <p>Cordialement,</p>
+              <p><strong>L'équipe JimmyTech</strong><br/>
+              <a href="https://jimmy-site-pro.vercel.app" style="color: #2563eb; text-decoration: none;">jimmy-site-pro.vercel.app</a></p>
+            </div>
+          `,
+        }),
+      });
+
+      // Wait for both emails to be sent (or at least attempted)
+      const [adminResponse, clientResponse] = await Promise.all([adminEmailPromise, clientEmailPromise]);
+
+      if (adminResponse.ok) {
         setIsSubmitted(true);
       } else {
-        console.error("Erreur envoi email");
-        alert("Une erreur est survenue lors de l'envoi de la demande. Veuillez réessayer ou envoyer un email direct.");
+        console.error("Erreur envoi email admin");
+        // Even if admin email fails, if client email works, it's half good, but we want to ensure admin gets it.
+        // For UX, if one fails, we might still want to show success but log error.
+        // Let's assume if admin email fails, it's a critical error.
+        alert("Une erreur est survenue lors de l'envoi de la demande. Veuillez réessayer.");
       }
     } catch (error) {
       console.error(error);

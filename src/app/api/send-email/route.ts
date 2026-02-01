@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { subject, html, replyTo } = body;
+    const { to, subject, html, replyTo } = body;
 
     // Vérification des variables d'environnement
     if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
     await transporter.sendMail({
       from: process.env.GMAIL_USER,
-      to: process.env.GMAIL_USER, // L'email arrive chez vous
+      to: to || process.env.GMAIL_USER, // L'email arrive chez vous par défaut, ou au destinataire spécifié
       replyTo: replyTo, // Pour pouvoir répondre directement au client
       subject: subject,
       html: html,
