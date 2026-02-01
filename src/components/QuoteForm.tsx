@@ -15,7 +15,8 @@ const quoteSchema = z.object({
   urgency: z.boolean().default(false),
   email: z.string().email("Email invalide"),
   name: z.string().min(2, "Nom requis"),
-  phone: z.string().min(10, "Numéro de téléphone requis"),
+  phone: z.string().optional(),
+});  phone: z.string().min(10, "Numéro de téléphone requis"),
 });
 
 type QuoteFormData = z.infer<typeof quoteSchema>;
@@ -82,6 +83,7 @@ export default function QuoteForm() {
               <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0;">
                 <p><strong>Nom:</strong> ${data.name}</p>
                 <p><strong>Email:</strong> <a href="mailto:${data.email}">${data.email}</a></p>
+                ${data.phone ? `<p><strong>Téléphone:</strong> ${data.phone}</p>` : ''}
                 <hr style="border-color: #e2e8f0; margin: 15px 0;" />
                 <p><strong>Service:</strong> ${data.serviceType}</p>
                 <p><strong>Type d'intervention:</strong> ${data.interventionType === 'site' ? 'Sur Site' : 'À Distance'}</p>
@@ -289,6 +291,17 @@ export default function QuoteForm() {
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
           </div>
+        </div>
+
+        {/* Phone (Optional) */}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-slate-300">Téléphone (Optionnel)</label>
+          <input 
+            type="tel" 
+            {...register("phone")}
+            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none"
+            placeholder="06 12 34 56 78"
+          />
         </div>
 
         {/* Live Estimate Display - Removed as requested */}
