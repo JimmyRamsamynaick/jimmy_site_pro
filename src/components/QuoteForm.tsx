@@ -87,7 +87,7 @@ export default function QuoteForm() {
                 <p><strong>Service:</strong> ${data.serviceType}</p>
                 <p><strong>Type d'intervention:</strong> ${data.interventionType === 'site' ? 'Sur Site' : 'À Distance'}</p>
                 <p><strong>Urgence:</strong> ${data.urgency ? '<span style="color: red; font-weight: bold;">OUI (+50%)</span>' : 'Non'}</p>
-                ${data.zone ? `<p><strong>Zone:</strong> ${data.zone}</p>` : ''}
+                ${data.interventionType === 'site' && data.zone ? `<p><strong>Zone:</strong> ${data.zone}</p>` : ''}
                 <hr style="border-color: #e2e8f0; margin: 15px 0;" />
                 <h3 style="color: #1e293b;">Description du problème:</h3>
                 <p style="white-space: pre-wrap; color: #475569;">${data.description}</p>
