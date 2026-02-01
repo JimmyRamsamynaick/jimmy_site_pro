@@ -1,5 +1,5 @@
 import ContactForm from "@/components/ContactForm";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -27,17 +27,6 @@ export default function ContactPage() {
                     <p className="text-sm text-slate-500 font-medium uppercase">Email</p>
                     <a href="mailto:jimmyramsamynaick@gmail.com" className="text-white text-base md:text-lg hover:text-blue-400 transition-colors break-all">jimmyramsamynaick@gmail.com</a>
                     <p className="text-slate-400 text-sm">Réponse sous 24h</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-500/10 rounded-lg">
-                    <MapPin className="h-6 w-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500 font-medium uppercase">Localisation</p>
-                    <p className="text-white text-lg">Votre Ville, France</p>
-                    <p className="text-slate-400 text-sm">Intervention 30km alentours</p>
                   </div>
                 </div>
               </div>

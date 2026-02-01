@@ -14,7 +14,6 @@ export default function MentionsLegales() {
               <li><strong>Propriétaire du site :</strong> Jimmy Ramsamynaick</li>
               <li><strong>Statut :</strong> Entrepreneur Individuel / Freelance</li>
               <li><strong>Contact :</strong> jimmyramsamynaick@gmail.com</li>
-              <li><strong>Adresse :</strong> (Adresse non divulguée publiquement - disponible sur demande officielle)</li>
             </ul>
           </section>
 
