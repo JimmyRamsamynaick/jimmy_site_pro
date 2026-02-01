@@ -13,6 +13,7 @@ export default function Navbar() {
     { name: "Services Info", href: "/services", icon: Wrench },
     { name: "Développement", href: "/dev", icon: Code },
     { name: "Boutique", href: "/shop", icon: ShoppingBag },
+    { name: "Paiement", href: "/payment", icon: CreditCard },
     { name: "Contact", href: "/contact", icon: Mail },
   ];
 
