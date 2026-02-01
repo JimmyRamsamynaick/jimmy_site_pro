@@ -60,8 +60,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} JimmyTech. Tous droits réservés.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="#" className="text-slate-400 hover:text-white transition-colors"><Github className="h-5 w-5" /></a>
-            <a href="#" className="text-slate-400 hover:text-white transition-colors"><Linkedin className="h-5 w-5" /></a>
+            <a href="https://github.com/JimmyRamsamynaick" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors"><Github className="h-5 w-5" /></a>
+            <a href="https://www.linkedin.com/in/jimmyramsamynaick/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors"><Linkedin className="h-5 w-5" /></a>
           </div>
         </div>
       </div>
