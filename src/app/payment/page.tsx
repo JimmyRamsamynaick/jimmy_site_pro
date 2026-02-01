@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { CreditCard, Wallet, Lock, ArrowRight } from "lucide-react";
+import { CreditCard, Wallet, Lock, ArrowRight, Banknote } from "lucide-react";
 import { motion } from "framer-motion";
 
 function PaymentContent() {
@@ -23,13 +23,15 @@ function PaymentContent() {
     if (qType) setPaymentType(qType);
   }, [searchParams]);
 
-  const handlePaymentClick = (provider: "paypal" | "revolut") => {
+    const handlePaymentClick = (provider: "paypal" | "revolut" | "cash") => {
     if (provider === "paypal") {
       const baseUrl = "https://paypal.me/JimmyRamsamynaick";
       const finalUrl = amount ? `${baseUrl}/${amount}EUR` : baseUrl;
       window.open(finalUrl, "_blank");
     } else if (provider === "revolut") {
       window.open("https://revolut.me/jramsamynaick05", "_blank");
+    } else if (provider === "cash") {
+      // Pas de redirection externe pour le cash
     }
     
     // Redirect to confirmation page to give instructions
@@ -102,6 +104,13 @@ function PaymentContent() {
             >
               <Wallet className="mr-2 h-5 w-5" />
               Payer avec Revolut
+            </button>
+            <button 
+              onClick={() => handlePaymentClick("cash")}
+              className="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center transition-all transform hover:-translate-y-0.5 shadow-lg shadow-green-900/20"
+            >
+              <Banknote className="mr-2 h-5 w-5" />
+              Payer en Espèces (Sur site uniquement)
             </button>
           </div>
 
