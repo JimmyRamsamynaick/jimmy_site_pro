@@ -124,7 +124,7 @@ export default function QuoteForm() {
               <br/>
               <p>Cordialement,</p>
               <p><strong>L'équipe JimmyTech</strong><br/>
-              <a href="https://jimmy-site-pro.vercel.app" style="color: #2563eb; text-decoration: none;">jimmy-site-pro.vercel.app</a></p>
+              <a href="https://jimmy-pro.duckdns.org/" style="color: #2563eb; text-decoration: none;">jimmy-pro.duckdns.org</a></p>
             </div>
           `,
         }),
