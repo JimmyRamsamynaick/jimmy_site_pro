@@ -16,7 +16,6 @@ const quoteSchema = z.object({
   email: z.string().email("Email invalide"),
   name: z.string().min(2, "Nom requis"),
   phone: z.string().optional(),
-});  phone: z.string().min(10, "Numéro de téléphone requis"),
 });
 
 type QuoteFormData = z.infer<typeof quoteSchema>;
