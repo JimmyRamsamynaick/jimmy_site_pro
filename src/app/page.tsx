@@ -37,13 +37,13 @@ export default function Home() {
             className="text-center max-w-3xl mx-auto"
           >
             <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
-              Expertise Web & <br />
+              JimmyTech : Expert Informatique & <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
-                Solutions Informatiques
+                Web à Auterive et Toulouse
               </span>
             </motion.h1>
             <motion.p variants={itemVariants} className="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed">
-              Un partenaire de confiance pour vos besoins numériques. Dépannage, maintenance, sécurité et création de sites web modernes.
+              Votre technicien informatique de confiance. Dépannage, maintenance, sécurité et création de sites web modernes. Intervention sur site et à distance.
             </motion.p>
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center gap-4">
               <Link href="/quote" className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-lg shadow-lg hover:shadow-blue-500/50 transition-all transform hover:-translate-y-1 flex items-center justify-center">
