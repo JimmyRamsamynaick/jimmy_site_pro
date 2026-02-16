@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: "Besoin d'un technicien informatique ou d'un site web ? JimmyTech vous accompagne à Auterive, Toulouse et à distance. Expertise et réactivité garanties.",
     images: [
       {
-        url: "/og-image.jpg", // We might need to create this later or just leave it as placeholder
+        url: "https://jimmy-pro.duckdns.org/icon.png",
         width: 1200,
         height: 630,
         alt: "JimmyTech - Solutions Informatiques",
@@ -47,6 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "JimmyTech | Expert Informatique & Web",
     description: "Dépannage, maintenance et création web à Auterive et Toulouse.",
+    images: ["https://jimmy-pro.duckdns.org/icon.png"],
     creator: "@JimmyTech", // Placeholder if no twitter
   },
   verification: {
