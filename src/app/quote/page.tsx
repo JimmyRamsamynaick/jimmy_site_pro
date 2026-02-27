@@ -1,4 +1,10 @@
 import QuoteForm from "@/components/QuoteForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Demander un Devis Informatique | JimmyTech Auterive",
+  description: "Obtenez un devis gratuit pour votre dépannage informatique ou création de site web. Tarifs transparents et intervention rapide à Auterive et Toulouse.",
+};
 
 export default function QuotePage() {
   return (

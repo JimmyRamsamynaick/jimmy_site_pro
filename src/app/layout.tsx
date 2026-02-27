@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jimmy-pro.duckdns.org"),
   title: {
     default: "JimmyTech | Expert Informatique & Web à Auterive et Toulouse",
     template: "%s | JimmyTech"
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     description: "Besoin d'un technicien informatique ou d'un site web ? JimmyTech vous accompagne à Auterive, Toulouse et à distance. Expertise et réactivité garanties.",
     images: [
       {
-        url: "https://jimmy-pro.duckdns.org/icon.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "JimmyTech - Solutions Informatiques",
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "JimmyTech | Expert Informatique & Web",
     description: "Dépannage, maintenance et création web à Auterive et Toulouse.",
-    images: ["https://jimmy-pro.duckdns.org/icon.png"],
+    images: ["/og-image.png"],
     creator: "@JimmyTech", // Placeholder if no twitter
   },
   verification: {
@@ -67,11 +68,16 @@ const jsonLd = {
     "addressRegion": "Occitanie",
     "addressCountry": "FR"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 43.3524, 
-    "longitude": 1.4755 
-  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Auterive"
+    },
+    {
+      "@type": "City",
+      "name": "Toulouse"
+    }
+  ],
   "url": "https://jimmy-pro.duckdns.org",
   "priceRange": "$$",
   "openingHoursSpecification": [
@@ -97,11 +103,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className={`${inter.className} bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col`}>
+      <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+      </head>
+      <body className={`${inter.className} bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col`}>
         <Navbar />
         <main className="flex-grow">
           {children}

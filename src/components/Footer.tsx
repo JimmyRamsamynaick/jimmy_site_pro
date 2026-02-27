@@ -49,7 +49,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-blue-500" />
-                <span>Intervention sur site & à distance</span>
+                <span>Intervention à Auterive, Toulouse & à distance</span>
               </li>
             </ul>
           </div>

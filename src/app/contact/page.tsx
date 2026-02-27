@@ -1,5 +1,11 @@
 import ContactForm from "@/components/ContactForm";
 import { Mail } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contactez JimmyTech | Dépannage Informatique Auterive & Toulouse",
+  description: "Besoin d'un dépannage informatique ou d'un devis ? Contactez JimmyTech à Auterive. Réponse rapide sous 24h. Intervention sur site ou à distance.",
+};
 
 export default function ContactPage() {
   return (
